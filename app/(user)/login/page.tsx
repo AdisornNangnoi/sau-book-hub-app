@@ -11,7 +11,12 @@ export default function LoginPage() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ role }),
     });
-    router.push("/"); // กลับหน้าหลัก
+
+    if (role === "admin") {
+      router.push("/admin"); // ถ้าเป็นแอดมินไปหน้า admin
+    } else {
+      router.push("/"); // ถ้าเป็นผู้ใช้ทั่วไปไปหน้าหลัก
+    }
     router.refresh();
   };
 
